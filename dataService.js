@@ -6,25 +6,27 @@ module.exports = {
     
     getPhones: function(context, cb){
 
-        console.log('dataService - getPhones - context:');
-        console.log(context);
-
         var result = [];
 
-        for (let property in context) {
-            if (context.hasOwnProperty(property)) {
-                
-                var filtered = data.filter(function(smartphone){
+        data.forEach(function(smartphone){
 
-                    return smartphone[property].trim() == context[property].trim();
-                });
+            var match = true;
 
+            for (let property in context) {
                 
-                result = result.concat(filtered);
+                if(typeof smartphone[property] == 'string' && smartphone[property].trim() != context[property].trim()){
+                    match = false;
+                }else if(typeof smartphone[property] == 'number' && smartphone[property] > context[property]){
+                    match = false;
+                }
             }
-        }
 
+            if(match){
+                result.push(smartphone);
+            }
 
+        });
+        
         console.log('result from getPhones:');
         console.log(result);
         

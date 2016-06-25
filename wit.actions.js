@@ -30,6 +30,10 @@ module.exports = {
     },
 
     merge(recipientId, context, entities, message, cb) {
+
+        console.log('context before merge:');
+        console.log(context);
+        
         
         async.forEachOf(entities, (entity, key, cb) => {
             const value = firstEntityValue(entity);
@@ -50,15 +54,34 @@ module.exports = {
                         context.manufactor = value;
                         break;
 
+                    case 'price':
+                        context.price = value;
+                        break;
+
+                    case 'size':
+                        context.size = value;
+                        break;
+
                     default:
                         //cb();
                 }
 
                 console.log('context after merge:');
                 console.log(context);
+
+
+                dataService.getPhones(context, function(err, phones){
+
+                    //console.log(phones);
+
+                    FB.sendText(
+                        recipientId,
+                        phones.length
+                    );
+
+                    cb(context);
+                });
                 
-                
-                cb();
             }
             else
                 cb();
@@ -73,6 +96,7 @@ module.exports = {
         });
         
     },
+    
     error(recipientId, context, error) {
         console.log(error.message);
     },
@@ -81,17 +105,7 @@ module.exports = {
         console.log('getListByAttributes');
         console.log(context);
 
-        dataService.getPhones(context, function(err, phones){
-
-            console.log(phones);
-            
-            FB.sendText(
-                recipientId,
-                phones.join(' ')
-            );
-
-            cb(context);
-        });
+        cb(context);
 
     },
 
