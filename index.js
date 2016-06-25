@@ -39,9 +39,10 @@ const findOrCreateSession = (sessions, fbid, cb) => {
 
     if (!sessions[fbid]) {
         console.log("New Session for:", fbid);
-        sessions[fbid] = session;
-        cb(sessions, fbid);
+        sessions[fbid] = {fbid: fbid, context: {}};
     }
+    cb(sessions, fbid);
+
 };
 
 // Wit.ai bot specific code
