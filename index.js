@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const Wit = require('node-wit').Wit;
 const FB = require('./facebook.action');
+const request = require('request');
 
 // Webserver parameter
 const PORT = process.env.PORT || 5000;
@@ -39,7 +40,11 @@ const findOrCreateSession = (sessions, fbid, cb) => {
 
     if (!sessions[fbid]) {
         console.log("New Session for:", fbid);
-        sessions[fbid] = {fbid: fbid, context: {}};
+        sessions[fbid] = {
+            fbid: fbid,
+            context: {},
+            respond: true
+        };
     }
     cb(sessions, fbid);
 
@@ -84,7 +89,8 @@ app.post('/', (req, res) => {
         // This is needed for our bot to figure out the conversation history
         findOrCreateSession(sessions, sender, (sessions, sessionId) => {
             // We retrieve the message content
-            if (messaging.message) {
+
+            if (messaging.message && sessions[sender].respond) {
                 //MESSAGE
 
                 const msg = messaging.message.text;
@@ -101,33 +107,60 @@ app.post('/', (req, res) => {
                 } else if (msg) {
                     // We received a text message
 
-                    // Let's forward the message to the Wit.ai Bot Engine
-                    // This will run all actions until our bot has nothing left to do
-                    wit.runActions(
-                        sessionId, // the user's current session
-                        msg, // the user's message
-                        sessions[sessionId].context, // the user's current session state
-                        (error, context) => {
-                            if (error) {
-                                console.log('Oops! Got an error from Wit:', error);
-                            } else {
-                                // Our bot did everything it has to do.
-                                // Now it's waiting for further messages to proceed.
-                                console.log('Waiting for futher messages.');
 
-                                // Based on the session state, you might want to reset the session.
-                                // This depends heavily on the business logic of your bot.
-                                // Example:
-                                // if (context['done']) {
-                                //   delete sessions[sessionId];
-                                // }
+                    //Check if user is angry
+                    const watsonUrl = 'https://gateway-a.watsonplatform.net/calls/text/TextGetEmotion?apikey=' +
+                        config.WATSON_KEY +
+                        '&text=' + msg +
+                        '&outputMode=json';
+                    
+                    request(watsonUrl, function (error, response, body) {
+                        if (!error && response.statusCode == 200) {
 
-                                // Updating the user's current session state
-                                sessions[sessionId].context = context;
-                                //connection.query("UPDATE session SET context=? WHERE fbid=?", [JSON.stringify(sessions[sessionId]), sessionId]);
+                            //Todo: implement try catch
+                            body = JSON.parse(body);
+
+                            if(body.docEmotions.anger >= 0.5){
+                                console.log('Forward to Agent');
+                                FB.sendText(
+                                    sender,
+                                    'You will be forwarded to a real person, sorry to disappoint you :('
+                                );
+
+                                sessions[sender].respond = false;
+
+                            }else{
+                                // Let's forward the message to the Wit.ai Bot Engine
+                                // This will run all actions until our bot has nothing left to do
+                                wit.runActions(
+                                    sessionId, // the user's current session
+                                    msg, // the user's message
+                                    sessions[sessionId].context, // the user's current session state
+                                    (error, context) => {
+                                        if (error) {
+                                            console.log('Oops! Got an error from Wit:', error);
+                                        } else {
+                                            // Our bot did everything it has to do.
+                                            // Now it's waiting for further messages to proceed.
+                                            console.log('Waiting for futher messages.');
+
+                                            // Based on the session state, you might want to reset the session.
+                                            // This depends heavily on the business logic of your bot.
+                                            // Example:
+                                            // if (context['done']) {
+                                            //   delete sessions[sessionId];
+                                            // }
+
+                                            // Updating the user's current session state
+                                            sessions[sessionId].context = context;
+                                            //connection.query("UPDATE session SET context=? WHERE fbid=?", [JSON.stringify(sessions[sessionId]), sessionId]);
+                                        }
+                                    }
+                                );
                             }
+
                         }
-                    );
+                    });
                 }
             } else if (messaging.postback) {
                 //POSTBACK
