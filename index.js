@@ -7,7 +7,7 @@ const Wit = require('node-wit').Wit;
 const FB = require('./facebook.action');
 
 // Webserver parameter
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 // Messenger API parameters
 if (!config.FB_PAGE_ID) {
