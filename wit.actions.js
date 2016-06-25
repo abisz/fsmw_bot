@@ -3,6 +3,8 @@
 const async = require('async');
 const FB = require("./facebook.action");
 const dataService = require('./dataService.js');
+const config = require('./config.js');
+const request = require('request');
 
 module.exports = {
     say(recipientId, context, message, cb) {
@@ -31,10 +33,6 @@ module.exports = {
 
     merge(recipientId, context, entities, message, cb) {
 
-        console.log('context before merge:');
-        console.log(context);
-        
-        
         async.forEachOf(entities, (entity, key, cb) => {
             const value = firstEntityValue(entity);
             console.error("Result", key, value);
@@ -63,7 +61,7 @@ module.exports = {
                         break;
 
                     default:
-                        //cb();
+                    //cb();
                 }
 
                 console.log('context after merge:');
@@ -73,15 +71,17 @@ module.exports = {
                 dataService.getPhones(context, function(err, phones){
 
                     //console.log(phones);
+                    /*
+                     FB.sendText(
+                     recipientId,
+                     phones.length
+                     );*/
+                    sendGenericMessage(recipientId, phones);
 
-                    FB.sendText(
-                        recipientId,
-                        phones.length
-                    );
 
-                    cb(context);
+                    cb();
                 });
-                
+
             }
             else
                 cb();
@@ -94,13 +94,13 @@ module.exports = {
                 cb(context);
             }
         });
-        
+
     },
-    
+
     error(recipientId, context, error) {
         console.log(error.message);
     },
-    
+
     getListByAttributes(recipientId, context, cb){
         console.log('getListByAttributes');
         console.log(context);
@@ -132,4 +132,60 @@ const firstEntityValue = (entity) => {
         return null;
     }
     return typeof val === 'object' ? val.value : val;
+};
+
+const sendGenericMessage = (sender, phones) => {
+
+    console.log('sendGeneric');
+    
+    
+    let messageData = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": []
+            }
+        }
+    };
+
+    //http://kincs.de/kincs/img/bot/black-ios.jpg 
+    phones.forEach(function(phone){
+        
+        let image = 'http://kincs.de/kincs/img/bot/' + phone.color.toLowerCase() + '-' + phone.osType.toLowerCase() + '.jpg';
+        console.log(image);
+        
+        
+        messageData.attachment.payload.elements.push({
+            title: phone.manufactor + ' ' + phone.model + ' (' + phone.color + ')',
+            subtitle: phone.storage + 'GB for only ' + phone.price + '€',
+            image_url: image,
+            //image_url: 'http://kincs.de/kincs/img/bot/black-ios.jpg',
+            buttons: [{
+                type: "web_url",
+                url: "https://www.a1.net/handys/vorteile/0-euro-handys/s/top-smartphones-um-0-euro",
+                title: "Order Now!"
+            }]
+        });
+
+    });
+
+    console.log(messageData);
+
+
+    request({
+        url: 'https://graph.facebook.com/v2.6/me/messages',
+        qs: {access_token: config.FB_PAGE_TOKEN},
+        method: 'POST',
+        json: {
+            recipient: {id:sender},
+            message: messageData
+        }
+    }, function(error, response, body) {
+        if (error) {
+            console.log('Error sending messages: ', error)
+        } else if (response.body.error) {
+            console.log('Error: ', response.body.error)
+        }
+    })
 };

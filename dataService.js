@@ -29,9 +29,12 @@ module.exports = {
         
         console.log('result from getPhones:');
         console.log(result);
-        
-        
+
+        result = result.slice(0, 10);
+
         cb(null, result);
-    }
+    },
+
+
     
 };
