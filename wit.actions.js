@@ -2,6 +2,7 @@
 
 const async = require('async');
 const FB = require("./facebook.action");
+const dataService = require('./dataService.js');
 
 module.exports = {
     say(recipientId, context, message, cb) {
@@ -29,16 +30,35 @@ module.exports = {
     },
 
     merge(recipientId, context, entities, message, cb) {
-
+        
         async.forEachOf(entities, (entity, key, cb) => {
             const value = firstEntityValue(entity);
             console.error("Result", key, value);
             if (value != null && (context[key] == null || context[key] != value)) {
 
                 switch (key) {
+
+                    case 'osType':
+                        context.osType = value;
+                        break;
+
+                    case 'color':
+                        context.color = value;
+                        break;
+
+                    case 'manufactor':
+                        context.manufactor = value;
+                        break;
+
                     default:
-                        cb();
+                        //cb();
                 }
+
+                console.log('context after merge:');
+                console.log(context);
+                
+                
+                cb();
             }
             else
                 cb();
@@ -51,10 +71,39 @@ module.exports = {
                 cb(context);
             }
         });
+        
     },
     error(recipientId, context, error) {
         console.log(error.message);
     },
+    
+    getListByAttributes(recipientId, context, cb){
+        console.log('getListByAttributes');
+        console.log(context);
+
+        dataService.getPhones(context, function(err, phones){
+
+            console.log(phones);
+            
+            FB.sendText(
+                recipientId,
+                phones.join(' ')
+            );
+
+            cb(context);
+        });
+
+    },
+
+    checkAvailability(recipientId, context, cb){
+
+        FB.sendText(
+            recipientId,
+            'Yes, it is available'
+        );
+
+        cb(context);
+    }
 
     /**** Add your own functions HERE ******/
 };

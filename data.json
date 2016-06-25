@@ -1,141 +1,31 @@
 [
   {
-    "_id": "576e53610fe0804038116bfb",
-    "marke": "Apple",
-    "model": "One",
-    "os": "Windows",
-    "price": 562,
+    "_id": "576e854d4cc0058c0b8b269a",
+    "manufactor": "Samsung",
+    "model": 4,
+    "os": "iOS",
+    "price": 515,
     "color": "pink",
     "availability": "next weeks",
-    "size": 3.9578,
-    "extra": [
-      {
-        "camera": 3,
-        "extensibleStorage": true
-      }
-    ]
-  },
-  {
-    "_id": "576e5361a7157806854813fd",
-    "marke": "Apple",
-    "model": "One",
-    "os": "Windows",
-    "price": 292,
-    "color": "pink",
-    "availability": "now",
-    "size": 4.0062,
+    "storage": 16,
+    "size": 3.1521,
     "extra": [
       {
         "camera": 8,
-        "extensibleStorage": false
-      }
-    ]
-  },
-  {
-    "_id": "576e53619132f5106b839f75",
-    "marke": "Nokia",
-    "model": "S5",
-    "os": "Windows",
-    "price": 426,
-    "color": "blue",
-    "availability": "next days",
-    "size": 3.1115,
-    "extra": [
-      {
-        "camera": 9,
         "extensibleStorage": true
       }
     ]
   },
   {
-    "_id": "576e5361014f3f0a2fa14b9e",
-    "marke": "Huawei",
-    "model": 5,
-    "os": "Windows",
-    "price": 168,
+    "_id": "576e854de404ab1b71bfeb34",
+    "manufactor": "Apple",
+    "model": "6 plus",
+    "os": "iOS",
+    "price": 360,
     "color": "blue",
     "availability": "never",
-    "size": 4.0322,
-    "extra": [
-      {
-        "camera": 5,
-        "extensibleStorage": true
-      }
-    ]
-  },
-  {
-    "_id": "576e53610868ed67774a9046",
-    "marke": "Nokia",
-    "model": 5,
-    "os": "Windows",
-    "price": 411,
-    "color": "gold",
-    "availability": "never",
-    "size": 5.9552,
-    "extra": [
-      {
-        "camera": 4,
-        "extensibleStorage": true
-      }
-    ]
-  },
-  {
-    "_id": "576e53612c484614ca44740f",
-    "marke": "Huawei",
-    "model": "One",
-    "os": "Windows",
-    "price": 148,
-    "color": "white",
-    "availability": "next weeks",
-    "size": 3.8912,
-    "extra": [
-      {
-        "camera": 7,
-        "extensibleStorage": false
-      }
-    ]
-  },
-  {
-    "_id": "576e536166572e7bf2cabe15",
-    "marke": "Nokia",
-    "model": "S5",
-    "os": "Windows",
-    "price": 191,
-    "color": "black",
-    "availability": "never",
-    "size": 3.5438,
-    "extra": [
-      {
-        "camera": 9,
-        "extensibleStorage": true
-      }
-    ]
-  },
-  {
-    "_id": "576e5361ed0a9ed4d74c282c",
-    "marke": "OnePlus",
-    "model": "S5",
-    "os": "Windows",
-    "price": 109,
-    "color": "pink",
-    "availability": "never",
-    "size": 5.5092,
-    "extra": [
-      {
-        "camera": 5,
-        "extensibleStorage": false
-      }
-    ]
-  },
-  {
-    "_id": "576e53615342c6233683d994",
-    "marke": "Samsung",
-    "model": "6s",
-    "os": "Windows",
-    "price": 175,
-    "color": "blue",
-    "availability": "now",
-    "size": 4.9743,
+    "storage": 32,
+    "size": 4.1977,
     "extra": [
       {
         "camera": 3,
@@ -144,14 +34,66 @@
     ]
   },
   {
-    "_id": "576e536118898508ffcb2a73",
-    "marke": "Samsung",
-    "model": "One",
-    "os": "Windows",
-    "price": 585,
-    "color": "white",
+    "_id": "576e854d0f75b1669409e6ab",
+    "manufactor": "Samsung",
+    "model": 4,
+    "os": "iOS",
+    "price": 549,
+    "color": "blue",
+    "availability": "never",
+    "storage": 32,
+    "size": 5.0695,
+    "extra": [
+      {
+        "camera": 8,
+        "extensibleStorage": true
+      }
+    ]
+  },
+  {
+    "_id": "576e854d5890d9d2ac616b8e",
+    "manufactor": "Samsung",
+    "model": "Galaxy",
+    "os": "iOS",
+    "price": 596,
+    "color": "blue",
+    "availability": "next weeks",
+    "storage": 64,
+    "size": 4.1993,
+    "extra": [
+      {
+        "camera": 2,
+        "extensibleStorage": false
+      }
+    ]
+  },
+  {
+    "_id": "576e854dd5f0083455f23645",
+    "manufactor": "Apple",
+    "model": 5,
+    "os": "iOS",
+    "price": 598,
+    "color": "blue",
+    "availability": "next days",
+    "storage": 64,
+    "size": 3.2931,
+    "extra": [
+      {
+        "camera": 10,
+        "extensibleStorage": false
+      }
+    ]
+  },
+  {
+    "_id": "576e854d061aca343a5cf5a2",
+    "manufactor": "Apple",
+    "model": "S5",
+    "os": "iOS",
+    "price": 397,
+    "color": "blue",
     "availability": "now",
-    "size": 4.3714,
+    "storage": 32,
+    "size": 4.409,
     "extra": [
       {
         "camera": 10,
@@ -160,14 +102,49 @@
     ]
   },
   {
-    "_id": "576e536198c835cbad5786a0",
-    "marke": "LG",
-    "model": "6s",
-    "os": "Windows",
-    "price": 308,
+    "_id": "576e854d9bf0daa984bc4d81",
+    "manufactor": "Apple",
+    "model": "S5",
+    "os": "iOS",
+    "price": 303,
+    "color": "pink",
+    "availability": "now",
+    "storage": 64,
+    "size": 4.5209,
+    "extra": [
+      {
+        "camera": 3,
+        "extensibleStorage": true
+      }
+    ]
+  },
+  {
+    "_id": "576e854d90a366093fd7a2f2",
+    "manufactor": "Apple",
+    "model": 4,
+    "os": "iOS",
+    "price": 406,
     "color": "blue",
-    "availability": "next weeks",
-    "size": 4.4595,
+    "availability": "now",
+    "storage": 64,
+    "size": 5.3825,
+    "extra": [
+      {
+        "camera": 2,
+        "extensibleStorage": false
+      }
+    ]
+  },
+  {
+    "_id": "576e854db86e24ab503f31df",
+    "manufactor": "Samsung",
+    "model": "6 plus",
+    "os": "iOS",
+    "price": 461,
+    "color": "gold",
+    "availability": "now",
+    "storage": 32,
+    "size": 4.9661,
     "extra": [
       {
         "camera": 8,
@@ -176,14 +153,83 @@
     ]
   },
   {
-    "_id": "576e5361c6b95a53a017e7b1",
-    "marke": "OnePlus",
+    "_id": "576e854dcde94e536f6681dc",
+    "manufactor": "Apple",
     "model": "6s",
-    "os": "Windows",
-    "price": 255,
-    "color": "blue",
+    "os": "iOS",
+    "price": 595,
+    "color": "white",
+    "availability": "next weeks",
+    "storage": 64,
+    "size": 4.5767,
+    "extra": [
+      {
+        "camera": 7,
+        "extensibleStorage": true
+      }
+    ]
+  },
+  {
+    "_id": "576e854d426247692e72d370",
+    "manufactor": "Samsung",
+    "model": "6s",
+    "os": "iOS",
+    "price": 268,
+    "color": "pink",
+    "availability": "next weeks",
+    "storage": 64,
+    "size": 4.7449,
+    "extra": [
+      {
+        "camera": 5,
+        "extensibleStorage": false
+      }
+    ]
+  },
+  {
+    "_id": "576e854ddfe0164e3c07e3ad",
+    "manufactor": "Samsung",
+    "model": "6s",
+    "os": "iOS",
+    "price": 475,
+    "color": "black",
     "availability": "now",
-    "size": 5.0834,
+    "storage": 16,
+    "size": 5.2762,
+    "extra": [
+      {
+        "camera": 10,
+        "extensibleStorage": true
+      }
+    ]
+  },
+  {
+    "_id": "576e854d26b646360fbbef74",
+    "manufactor": "Apple",
+    "model": "6s",
+    "os": "iOS",
+    "price": 524,
+    "color": "pink",
+    "availability": "now",
+    "storage": 16,
+    "size": 4.9766,
+    "extra": [
+      {
+        "camera": 9,
+        "extensibleStorage": true
+      }
+    ]
+  },
+  {
+    "_id": "576e854d624d4a83646aa91c",
+    "manufactor": "Apple",
+    "model": 5,
+    "os": "iOS",
+    "price": 507,
+    "color": "pink",
+    "availability": "next days",
+    "storage": 32,
+    "size": 3.9801,
     "extra": [
       {
         "camera": 6,
@@ -192,130 +238,104 @@
     ]
   },
   {
-    "_id": "576e5361d6d40f34c40a0ef1",
-    "marke": "Huawei",
-    "model": "One",
-    "os": "Windows",
-    "price": 456,
-    "color": "black",
-    "availability": "never",
-    "size": 5.1392,
+    "_id": "576e854d288068b7485e2b47",
+    "manufactor": "Samsung",
+    "model": "6s",
+    "os": "iOS",
+    "price": 396,
+    "color": "white",
+    "availability": "next days",
+    "storage": 32,
+    "size": 3.8298,
     "extra": [
       {
-        "camera": 8,
-        "extensibleStorage": false
-      }
-    ]
-  },
-  {
-    "_id": "576e536195147b8a6c87d63b",
-    "marke": "Samsung",
-    "model": 5,
-    "os": "Windows",
-    "price": 475,
-    "color": "gold",
-    "availability": "next weeks",
-    "size": 4.1924,
-    "extra": [
-      {
-        "camera": 9,
+        "camera": 2,
         "extensibleStorage": true
       }
     ]
   },
   {
-    "_id": "576e5361236e76df1dc604a7",
-    "marke": "OnePlus",
-    "model": "S5",
-    "os": "Windows",
-    "price": 465,
-    "color": "black",
+    "_id": "576e854dfd80a283fb7729c0",
+    "manufactor": "Apple",
+    "model": 5,
+    "os": "iOS",
+    "price": 210,
+    "color": "pink",
+    "availability": "now",
+    "storage": 32,
+    "size": 5.9484,
+    "extra": [
+      {
+        "camera": 9,
+        "extensibleStorage": false
+      }
+    ]
+  },
+  {
+    "_id": "576e854d6739c98a8da7ab38",
+    "manufactor": "Apple",
+    "model": "6s",
+    "os": "iOS",
+    "price": 273,
+    "color": "pink",
     "availability": "never",
-    "size": 3.8234,
+    "storage": 16,
+    "size": 5.4646,
+    "extra": [
+      {
+        "camera": 2,
+        "extensibleStorage": true
+      }
+    ]
+  },
+  {
+    "_id": "576e854dc520a3b61e5565f3",
+    "manufactor": "Apple",
+    "model": 4,
+    "os": "iOS",
+    "price": 206,
+    "color": "green",
+    "availability": "never",
+    "storage": 16,
+    "size": 4.4104,
+    "extra": [
+      {
+        "camera": 3,
+        "extensibleStorage": false
+      }
+    ]
+  },
+  {
+    "_id": "576e854d6c927540b21d5b58",
+    "manufactor": "Samsung",
+    "model": "S5",
+    "os": "iOS",
+    "price": 594,
+    "color": "green",
+    "availability": "never",
+    "storage": 64,
+    "size": 3.7635,
+    "extra": [
+      {
+        "camera": 4,
+        "extensibleStorage": false
+      }
+    ]
+  },
+  {
+    "_id": "576e854d3d9629c1e8e5dc91",
+    "manufactor": "Samsung",
+    "model": 4,
+    "os": "iOS",
+    "price": 324,
+    "color": "green",
+    "availability": "next weeks",
+    "storage": 32,
+    "size": 4.3478,
     "extra": [
       {
         "camera": 10,
-        "extensibleStorage": false
-      }
-    ]
-  },
-  {
-    "_id": "576e5361b29f27ee14ca9c97",
-    "marke": "Samsung",
-    "model": "One",
-    "os": "Windows",
-    "price": 114,
-    "color": "white",
-    "availability": "next days",
-    "size": 5.3644,
-    "extra": [
-      {
-        "camera": 4,
-        "extensibleStorage": false
-      }
-    ]
-  },
-  {
-    "_id": "576e5361cd2f16bf728518ad",
-    "marke": "Huawei",
-    "model": "6s",
-    "os": "Windows",
-    "price": 316,
-    "color": "black",
-    "availability": "next days",
-    "size": 4.8035,
-    "extra": [
-      {
-        "camera": 9,
-        "extensibleStorage": false
-      }
-    ]
-  },
-  {
-    "_id": "576e5361f3aa2029c7737195",
-    "marke": "LG",
-    "model": 5,
-    "os": "Windows",
-    "price": 479,
-    "color": "pink",
-    "availability": "next days",
-    "size": 5.8917,
-    "extra": [
-      {
-        "camera": 8,
-        "extensibleStorage": false
-      }
-    ]
-  },
-  {
-    "_id": "576e536169d346f5b7d9d1a0",
-    "marke": "OnePlus",
-    "model": "Lumia",
-    "os": "Windows",
-    "price": 451,
-    "color": "gold",
-    "availability": "next days",
-    "size": 3.3497,
-    "extra": [
-      {
-        "camera": 4,
         "extensibleStorage": true
-      }
-    ]
-  },
-  {
-    "_id": "576e53611d694e375623740a",
-    "marke": "LG",
-    "model": "S5",
-    "os": "Windows",
-    "price": 499,
-    "color": "gold",
-    "availability": "next weeks",
-    "size": 4.4484,
-    "extra": [
-      {
-        "camera": 8,
-        "extensibleStorage": false
       }
     ]
   }

@@ -4,12 +4,13 @@
   '{{repeat(20)}}',
   {
     _id: '{{objectId()}}',
-    marke: '{{random("Samsung", "Apple", "Huawei", "OnePlus", "LG", "Nokia")}}',
-    model: '{{random("6s", "S5", "One", "5", "Lumia")}}',
-    os: '{{"Android", "iOS", "Windows"}}',
+    manufactor: '{{random("Samsung", "Apple")}}',
+    model: '{{random("6s", "S5", "6 plus", "5", "4", "Galaxy")}}',
+    os: '{{"Android", "iOS"}}',
     price: '{{integer(100, 600)}}',
     color: '{{random("blue", "black", "white", "pink", "gold")}}',
     availability: '{{random("now", "next days", "next weeks", "never")}}',
+    storage: '{{random("16", "32", "64")}}',
     size: '{{floating(3,6)}}',
     extra: [
       {

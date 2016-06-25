@@ -120,7 +120,7 @@ app.post('/', (req, res) => {
                             //Todo: implement try catch
                             body = JSON.parse(body);
 
-                            if(body.docEmotions.anger >= 0.5){
+                            if(body.docEmotions.anger && body.docEmotions.anger >= 0.5 && false){
                                 console.log('Forward to Agent');
                                 FB.sendText(
                                     sender,
