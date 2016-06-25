@@ -1,0 +1,21 @@
+//http://www.json-generator.com/
+
+[
+  '{{repeat(20)}}',
+  {
+    _id: '{{objectId()}}',
+    marke: '{{random("Samsung", "Apple", "Huawei", "OnePlus", "LG", "Nokia")}}',
+    model: '{{random("6s", "S5", "One", "5", "Lumia")}}',
+    os: '{{"Android", "iOS", "Windows"}}',
+    price: '{{integer(100, 600)}}',
+    color: '{{random("blue", "black", "white", "pink", "gold")}}',
+    availability: '{{random("now", "next days", "next weeks", "never")}}',
+    size: '{{floating(3,6)}}',
+    extra: [
+      {
+        camera: '{{integer(1, 10)}}',
+        extensibleStorage: '{{bool()}}'
+      }
+    ]
+  }
+]
